@@ -15,3 +15,14 @@
 ```bash
 pip install -e .
 ```
+
+### 配置环境变量
+1. 在项目根目录下创建一个名为`.env`的文件。
+2. 在`.env`文件中添加以下环境变量：
+```
+IMAP_HOST=imap.example.com
+IMAP_USERNAME=your_email@example.com
+IMAP_PASSWORD=your_password
+```
+3. 将`IMAP_HOST`、`IMAP_USERNAME`和`IMAP_PASSWORD`替换为你实际使用的邮箱服务信息。
+4. 确保`.env`文件不被提交到版本控制系统中（例如，将其添加到`.gitignore`文件中）。
