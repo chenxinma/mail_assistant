@@ -6,6 +6,7 @@ dist/
 wheels/
 *.egg-info
 uv.lock
+__marimo__/
 
 # Virtual environments
 .venv
@@ -13,3 +14,8 @@ uv.lock
 # Environment variables
 .env
 .env.*
+
+# data files
+db/
+files/
+milvus_lite/

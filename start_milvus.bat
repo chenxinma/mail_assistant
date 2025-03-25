@@ -1,0 +1,1 @@
+milvus-server --data .\milvus_lite\
