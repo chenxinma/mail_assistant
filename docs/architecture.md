@@ -1,8 +1,5 @@
 ```mermaid
 graph TD
-    A[main.py] --> B[mail.py]
-    A --> C[vector_save.py]
-    A --> E[mcp_server.py]
     B --> D[log_config.py]
     C --> D
     E --> D
