@@ -23,6 +23,22 @@ pip install -e .
 IMAP_HOST=imap.example.com
 IMAP_USERNAME=your_email@example.com
 IMAP_PASSWORD=your_password
+MAILBOX=INBOX/example
+
+LLM_BASE_URL=http://example.com/v1
+LLM_API_KEY=your_api_key
+
+CHROMA_HOST=example.com
+CHROMA_PORT=31302
 ```
 3. 将`IMAP_HOST`、`IMAP_USERNAME`和`IMAP_PASSWORD`替换为你实际使用的邮箱服务信息。
 4. 确保`.env`文件不被提交到版本控制系统中（例如，将其添加到`.gitignore`文件中）。
+
+## 使用场景
+- **个人邮件管理**：帮助用户快速整理和汇总个人邮箱中的邮件，节省阅读时间。
+- **团队协作**：团队成员可以通过该工具快速了解邮件讨论的核心内容，提高沟通效率。
+- **邮件归档**：对历史邮件进行整理和归档，便于后续查询和参考。
+
+## 注意事项
+- 请确保`.env`文件中的邮箱信息准确无误，否则可能导致无法正常读取邮件。
+- 使用大模型汇总功能时，建议在本地环境中运行，以确保数据安全。
