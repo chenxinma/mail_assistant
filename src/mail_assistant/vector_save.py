@@ -72,7 +72,7 @@ def save_mail2vector():
     chroma_port = int(os.getenv('CHROMA_PORT', '0'))
     chroma_client = \
         chromadb.HttpClient(host=chroma_host, port=chroma_port)
-    collect_name = "fsg_project_mail"
+    collect_name = os.getenv('CHROMA_COLLECTION_NAME', '')
 
     # 定义 db 目录路径
     db_dir = 'db'

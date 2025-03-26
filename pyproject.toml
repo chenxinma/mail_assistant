@@ -3,7 +3,7 @@ name = "mail-assistant"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = [
     "pandas",
@@ -17,7 +17,20 @@ dependencies = [
     "schedule>=1.2.2",
     "chromadb>=0.6.3",
     "pydantic-ai>=0.0.44",
+    "mcp[cli]>=1.5.0",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = [
+  "."
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]

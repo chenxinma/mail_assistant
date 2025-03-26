@@ -19,3 +19,6 @@ __marimo__/
 db/
 files/
 milvus_lite/
+
+# Logs
+logs/*.log
