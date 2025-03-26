@@ -32,6 +32,12 @@ def _(pd):
 
 @app.cell
 def _(project_list):
+    project_list
+    return
+
+
+@app.cell
+def _(project_list):
     from pydantic_ai import Agent
     from pydantic_ai.models.openai import OpenAIModel
     from pydantic_ai.providers.openai import OpenAIProvider
@@ -147,23 +153,25 @@ def _():
 
 
 @app.cell
-def _(chroma_client):
-    collection = chroma_client.create_collection(name="fsg_project_mail")
-    return (collection,)
-
-
-@app.cell
-def _(df_mail):
-    df_mail.to_pandas().apply(lambda x: f"{x['subject']} \n {x['body']}", axis=1).to_list()
+def _():
+    # chroma_client.delete_collection("fsg_project_mail")
+    # collection = chroma_client.create_collection(name="fsg_project_mail")
     return
 
 
 @app.cell
-def _(collection, df_mail):
-    collection.add(
-        documents=df_mail.to_pandas().apply(lambda x: f"{x['subject']} \n {x['body']}", axis=1).to_list(),
-        ids=[str(id) for id in df_mail["uid"].to_list()]
-    )
+def _(chroma_client):
+    collection = chroma_client.get_collection(name="fsg_project_mail")
+    return (collection,)
+
+
+@app.cell
+def _():
+    # df_mail.to_pandas().apply(lambda x: f"{x['subject']} \n {x['body']}", axis=1).to_list()
+    # collection.add(
+    #     documents=df_mail.to_pandas().apply(lambda x: f"{x['subject']} \n {x['body']}", axis=1).to_list(),
+    #     ids=[str(id) for id in df_mail["uid"].to_list()]
+    # )
     return
 
 
@@ -181,7 +189,17 @@ def _(collection):
 
 @app.cell
 def _(collection):
-    collection.get(include=["metadatas"],offset=17)["ids"][0]
+    collection.get(include=["metadatas"])
+    return
+
+
+@app.cell
+def _(collection):
+    collection.query(
+        query_texts=["速创解耦项目进展"], # Chroma will embed this for you
+        where={"project": "速创解耦项目（一期）-订单中心一期"},
+        n_results=2 # how many results to return
+    )
     return
 
 

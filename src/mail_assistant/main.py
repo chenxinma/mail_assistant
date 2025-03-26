@@ -1,8 +1,13 @@
+"""
+功能说明：
+1. 从邮箱服务器获取最新的邮件信息。
+2. 保存邮件信息到本地的 Parquet 文件中。
+"""
 import os
 from dotenv import load_dotenv
 import duckdb
-import schedule
-import time
+# import schedule
+# import time
 from datetime import datetime
 from mail import fetch_emails
 
@@ -47,9 +52,9 @@ def main():
 
 if __name__ == "__main__":
     # 每15分钟运行一次 main 函数
-    schedule.every(15).minutes.do(main)
+    # schedule.every(15).minutes.do(main)
     print("Running...", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     main()
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
