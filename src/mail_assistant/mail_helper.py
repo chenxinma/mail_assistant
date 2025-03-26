@@ -1,3 +1,4 @@
+"""增量获取邮件转换成DataFrame"""
 import warnings
 from tqdm.rich import tqdm
 from tqdm import TqdmExperimentalWarning

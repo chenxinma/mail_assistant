@@ -9,7 +9,7 @@ import duckdb
 # import schedule
 # import time
 from datetime import datetime
-from mail import fetch_emails
+from mail_helper import fetch_emails
 
 def main():
     # 加载.env文件
