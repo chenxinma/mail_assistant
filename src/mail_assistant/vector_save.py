@@ -68,10 +68,9 @@ def save_mail2vector():
     """
     从 db 目录下读取 Parquet 文件，为每一行邮件信息增量地打上标签。
     """
-    chroma_host = os.getenv('CHROMA_HOST', '')
-    chroma_port = int(os.getenv('CHROMA_PORT', '0'))
+    chroma_path = os.getenv('CHROMA_PATH', '')
     chroma_client = \
-        chromadb.HttpClient(host=chroma_host, port=chroma_port)
+       chromadb.PersistentClient(path=chroma_path)
     collect_name = os.getenv('CHROMA_COLLECTION_NAME', '')
 
     # 定义 db 目录路径

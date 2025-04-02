@@ -1,9 +1,6 @@
 ```mermaid
 graph TD
-    B --> D[log_config.py]
-    C --> D
-    E --> D
-
+    
     subgraph 邮件处理模块
         B --> F[fetch_mail.py]
         B --> G[mail_helper.py]
@@ -16,6 +13,10 @@ graph TD
     subgraph 服务器模块
         E --> I[mcp_server.py]
     end
+
+    B --> D[log_config.py]
+    C --> D
+    E --> D
 ```
 
 ## 项目架构说明

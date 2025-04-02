@@ -22,11 +22,9 @@ def get_chroma_client():
     global _chroma_client
     if _chroma_client is None:
         load_dotenv()
-        chroma_host = os.getenv('CHROMA_HOST', '')
-        chroma_port = int(os.getenv('CHROMA_PORT', '0'))
-
-        _chroma_client = chromadb.HttpClient(host=chroma_host, port=chroma_port)
-        print("chroma_client", chroma_host, ":", chroma_port)
+        chroma_path = os.getenv('CHROMA_PATH', '')
+        _chroma_client = chromadb.PersistentClient(path=chroma_path)
+        print("chroma_client", chroma_path)
 
     return _chroma_client
 
